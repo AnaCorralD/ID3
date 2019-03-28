@@ -1,7 +1,6 @@
 package factoria;
 
 import integracion.Archivo;
-import negocio.BusquedaID3;
 
 /**
  * @author Ana Laura Corral Descargue

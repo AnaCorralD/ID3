@@ -2,13 +2,11 @@ package arbol;
 
 import java.util.ArrayList;
 
-
+import tablas.Atributo;
 import tablas.Ejemplos;
-
 /**
  * @author Ana Laura Corral Descargue
  */
-
 public class Nodo {
 	
 	private ArrayList<Nodo> hijos; //Array de hijos del nodo actual
@@ -16,6 +14,7 @@ public class Nodo {
 	private int numNegativos; //Numero de elementos negativos de este nodo
 	private String nombre; //Nombre del nodo (El nombre del atributo que crea el nodo)
 	private Ejemplos ejemplos; //Lista de ejemplos hasta ese nodo
+	private ArrayList<Atributo> atributos; //Lista de atributos
 	
 	public Nodo() {
 		this.nombre = "";
@@ -95,7 +94,13 @@ public class Nodo {
 	public void setEjemplos(Ejemplos ejemplos) {
 		this.ejemplos = ejemplos;
 	}
-	
-	
 
+	public ArrayList<Atributo> getAtributos() {
+		return atributos;
+	}
+
+	public void setAtributos(ArrayList<Atributo> atributos) {
+		this.atributos = atributos;
+	}
+	
 }

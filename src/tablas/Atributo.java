@@ -3,6 +3,7 @@ package tablas;
 import java.util.HashMap;
 import java.util.Set;
 
+
 /**
  * @author Ana Laura Corral Descargue
  */
@@ -131,5 +132,9 @@ public class Atributo {
 	public Set<String> getTipos(){
 		
 		return A.keySet();
+	}
+	
+	public boolean contiene(String elem){
+		return A.containsKey(elem);
 	}
 }

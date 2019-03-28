@@ -17,10 +17,11 @@ import negocio.TDatos;
  */
 
 /**
- *
- * @author Ana Corral
+ * @author Ana Laura Corral Descargue
  */
 public class GUIMainImp extends GUIMain {
+	
+	private TDatos tDatos;
 
     /**
      * Creates new form GUIMainImp
@@ -59,38 +60,38 @@ public class GUIMainImp extends GUIMain {
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
 
-        titulo.setFont(new java.awt.Font("Rockwell Condensed", 1, 48)); // NOI18N
+        titulo.setFont(new java.awt.Font("Rockwell Condensed", 1, 55)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo.setText("Algoritmo ID3");
 
-        tituloAtributo.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        tituloAtributo.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
         tituloAtributo.setText("Nombre del archivo de los atributos:");
 
-        tituloEjemplo.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        tituloEjemplo.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
         tituloEjemplo.setText("Nombre del archivo de los ejemplos:");
 
-        tituloNyP.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
-        tituloNyP.setText("Indicar el valor positivo y negativo");
+        tituloNyP.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
+        tituloNyP.setText("Indicar el valor positivo y negativo:");
 
-        positivo.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        positivo.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
         positivo.setText("Positivo:");
 
-        jLabel1.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
-        jLabel1.setText("Negativo");
+        jLabel1.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
+        jLabel1.setText("Negativo: ");
 
-        jTextFieldAtributo.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jTextFieldAtributo.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
         jTextFieldAtributo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextFieldEjemplo.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jTextFieldEjemplo.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
         jTextFieldEjemplo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextFieldPositivo.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jTextFieldPositivo.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
         jTextFieldPositivo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextFieldNegativo.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jTextFieldNegativo.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
         jTextFieldNegativo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
     
-        jButtonAceptar.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jButtonAceptar.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
         jButtonAceptar.setText("Aceptar");
         jButtonAceptar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButtonAceptar.setContentAreaFilled(false);
@@ -100,7 +101,7 @@ public class GUIMainImp extends GUIMain {
             }
         });
 
-        jButtonCancelar.setFont(new java.awt.Font("Rockwell Condensed", 0, 24)); // NOI18N
+        jButtonCancelar.setFont(new java.awt.Font("Rockwell Condensed", 0, 30)); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButtonCancelar.setContentAreaFilled(false);
@@ -221,14 +222,13 @@ public class GUIMainImp extends GUIMain {
     		negativo = this.jTextFieldNegativo.getText();
     	}
     	if(nErrores == 0) {
-    		this.clearData();
-    		TDatos tDatos = new TDatos(archivoAtributo, archivoEjemplo, positivo, negativo);
+    		this.tDatos = new TDatos(archivoAtributo, archivoEjemplo, positivo, negativo);
     		Controlador.getInstance().accion(new Contexto(Events.BUSCAR_ID3, tDatos));
     	}
     	else {
     		JLabel label = new JLabel("<html><body>Todos los campos son obligatorios</body></html>");
-			label.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 25));
-			JOptionPane.showMessageDialog(null, label, "Â¡Aviso!", JOptionPane.INFORMATION_MESSAGE);
+			label.setFont(new Font("Rockwell Condensed", Font.BOLD, 25));
+			JOptionPane.showMessageDialog(null, label, "¡Alerta!", JOptionPane.ERROR_MESSAGE);
     	}
     }//GEN-LAST:event_jButtonAceptarActionPerformed
     
@@ -241,9 +241,9 @@ public class GUIMainImp extends GUIMain {
 	}
     
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-    	JLabel label = new JLabel("<html><body>Vuelve pronto<center>ðŸ˜„</center></body></html>");
-		label.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 20));
-		JOptionPane.showMessageDialog(null, label, "Â¡Hasta pronto!", JOptionPane.INFORMATION_MESSAGE);
+    	JLabel label = new JLabel("<html><body>¡Nos vemos!</center></body></html>");
+		label.setFont(new Font("Rockwell Condensed", Font.BOLD, 20));
+		JOptionPane.showMessageDialog(null, label, "¡Adios!", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
@@ -271,8 +271,10 @@ public class GUIMainImp extends GUIMain {
 			this.setVisible(true);
 		break;
 		case(Events.BUSCAR_OK):
+			this.clearData();
 			Nodo nodo = (Nodo) contexto.getDato();
-			GUIArbol vista = GUIArbol.getInstance();
+			GUIArbol vista = new GUIArbol();
+			vista.setTDatos(tDatos);
 			vista.setArbol(nodo);
 			vista.initView();
 		break;
@@ -281,23 +283,32 @@ public class GUIMainImp extends GUIMain {
 			int res = (int) contexto.getDato();
 			switch(res){
 			case(-1):
-				JLabel label1 = new JLabel("<html><body>Fallo en la lectura del archivo de ejemplos</body></html>");
-				label1.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 25));
-				JOptionPane.showMessageDialog(null, label1, "Â¡Aviso!", JOptionPane.INFORMATION_MESSAGE);
+				JLabel label1 = new JLabel("<html><body>Fallo en el archivo de ejemplos</body></html>");
+				label1.setFont(new Font("Rockwell Condensed", Font.BOLD, 24));
+				JOptionPane.showMessageDialog(null, label1, "¡Alerta!", JOptionPane.ERROR_MESSAGE);
 			break;
 			case(-2):
-				JLabel label2 = new JLabel("<html><body>No coincide el valor del positivo y/o negativo</body></html>");
-				label2.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 25));
-				JOptionPane.showMessageDialog(null, label2, "Â¡Aviso!", JOptionPane.INFORMATION_MESSAGE);
+				JLabel label2 = new JLabel("<html><body>No se corresponde el valor del positivo y/o negativo</body></html>");
+				label2.setFont(new Font("Rockwell Condensed", Font.BOLD, 24));
+				JOptionPane.showMessageDialog(null, label2,"¡Alerta!", JOptionPane.ERROR_MESSAGE);
 			break;
 			case(-3):
-				JLabel label3 = new JLabel("<html><body>Fallo en la lectura del archivo de atributos</body></html>");
-				label3.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 25));
-				JOptionPane.showMessageDialog(null, label3, "Â¡Aviso!", JOptionPane.INFORMATION_MESSAGE);
+				JLabel label3 = new JLabel("<html><body>Fallo en el archivo de atributos</body></html>");
+				label3.setFont(new Font("Rockwell Condensed", Font.BOLD, 25));
+				JOptionPane.showMessageDialog(null, label3, "¡Alerta!", JOptionPane.ERROR_MESSAGE);
 			break;
 			}
 		break;
+		case(Events.COMPROBAR_OK):
+			JLabel label = new JLabel("El resultado es: " + (String) contexto.getDato());
+			label.setFont(new Font("Rockwell Condensed", Font.BOLD, 25));
+			JOptionPane.showMessageDialog(null, label, "¡Bien!", JOptionPane.INFORMATION_MESSAGE);
+		break;
+		case(Events.COMPROBAR_KO):
+			JLabel label4 = new JLabel("Uno de los elementos no se puede evaluar");
+			label4.setFont(new Font("Rockwell Condensed", Font.BOLD, 25));
+			JOptionPane.showMessageDialog(null, label4, "¡Alerta!", JOptionPane.ERROR_MESSAGE);
+		break;
 		}
-		
 	}
 }
